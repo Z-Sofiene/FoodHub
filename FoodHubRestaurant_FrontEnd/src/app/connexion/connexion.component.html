@@ -1,0 +1,33 @@
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+  <div class="card shadow-lg p-4" style="max-width: 400px; width: 100%;">
+    <div class="card-body text-center">
+      <i class="fas fa-user-lock fa-3x text-primary mb-3"></i> <!-- Lock icon -->
+      <h4 class="card-title mb-4">Connectez Vous</h4>
+      <form #f="ngForm" (ngSubmit)="login(f.value)">
+        <div class="mb-4">
+          <label class="form-label">Nom d'utilisateur</label>
+          <input
+            type="text"
+            name="username"
+            class="form-control"
+            placeholder="Nom d'utilisateur"
+            ngModel
+          />
+        </div>
+        <div class="mb-4">
+          <label class="form-label">Mot de passe</label>
+          <input
+            type="password"
+            name="password"
+            class="form-control"
+            placeholder="Mot de passe"
+            ngModel
+          />
+        </div>
+        <div class="d-grid">
+          <button type="submit" class="btn btn-primary btn-lg">Se Connecter</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

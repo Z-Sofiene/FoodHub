@@ -1,0 +1,50 @@
+<div class="container mt-5">
+  <h2 class="mb-4">Menu List</h2>
+
+  <div class="row">
+    <!-- Loop through the menus and display each menu as a card -->
+    <div *ngFor="let menu of menus" class="col-md-4 mb-4">
+      <div class="card h-100">
+        <!-- Display Image -->
+        <img
+          *ngIf="menu.image"
+          [src]="'data:image/jpeg;base64,' + menu.image"
+          class="card-img-top"
+          alt="{{ menu.titre }}"
+          style="height: 200px; object-fit: cover;"
+        />
+        <div *ngIf="!menu.image" class="card-img-top bg-secondary text-white d-flex align-items-center justify-content-center" style="height: 200px;">
+          <span>No Image</span>
+        </div>
+
+        <div class="card-body">
+          <h5 class="card-title"><b>{{ menu.titre }}</b></h5>
+          <p class="card-text">{{ menu.description }}</p>
+          <p class="card-text"><b>Price:</b> {{ menu.prix | currency }}</p>
+          <!-- Optionally, display the restaurant name -->
+          <p class="text-muted"><b>Restaurant:</b> {{ menu.rest?.titre }}</p>
+        </div>
+
+        <!-- Card footer with actions -->
+        <div class="card-footer d-flex justify-content-between">
+          <!-- Edit Button -->
+          <button class="btn btn-primary btn-sm" [routerLink]="['/menu/edit', menu.id]">
+            <i class="fas fa-edit"></i> Edit
+          </button>
+
+          <!-- Delete Button -->
+          <button class="btn btn-danger btn-sm" (click)="deleteMenu(menu.id)">
+            <i class="fas fa-trash-alt"></i> Delete
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add Menu Button -->
+  <div class="text-center mt-4">
+    <button class="btn btn-success" [routerLink]="['/addMenu']">
+      <i class="fas fa-plus"></i> Add Menu
+    </button>
+  </div>
+</div>

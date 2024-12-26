@@ -1,0 +1,14 @@
+# Node.js dependencies
+FoodHub_FrontEnd/node_modules/
+FoodHubClient_FrontEnd/node_modules/
+FoodHubRestaurant_FrontEnd/node_modules/
+
+# Build outputs
+FoodHub_FrontEnd/dist/
+FoodHubClient_FrontEnd/dist/
+FoodHubRestaurant_FrontEnd/dist/
+
+# IDE and editor settings
+*.log
+.vscode/
+.DS_Store

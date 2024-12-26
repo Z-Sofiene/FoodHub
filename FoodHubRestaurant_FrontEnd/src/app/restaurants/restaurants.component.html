@@ -1,0 +1,40 @@
+<div class="container mt-5">
+  <h2 class="mb-4">List of Restaurants</h2>
+
+  <div class="row">
+    <div *ngFor="let restaurant of restaurants" class="col-md-4 mb-4">
+      <div class="card">
+        <!-- Display Image -->
+        <img
+          *ngIf="restaurant.image"
+          [src]="'data:image/jpeg;base64,' + restaurant.image"
+          class="card-img-top"
+          alt="{{ restaurant.titre }}"
+        />
+        <div class="card-body">
+          <h5 class="card-title"><b>{{ restaurant.titre }}</b></h5>
+          <p class="card-text">{{ restaurant.description }}</p>
+          <p class="text-muted"><b>Specialty:</b> {{ restaurant.specialite }}</p>
+          <p class="text-muted"><b>Address:</b> {{ restaurant.adresse }}</p>
+          <div class="d-flex justify-content-between">
+            <!-- View Menu Button -->
+            <button class="btn btn-success" [routerLink]="['/menus', restaurant.id]">
+              <i class="fas fa-utensils"></i> Menu
+            </button>
+            <!-- Delete Button -->
+            <button class="btn btn-danger" (click)="deleteRestaurant(restaurant.id)">
+              <i class="fas fa-trash-alt"></i> Delete
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add Restaurant Button -->
+  <div class="text-center mt-4">
+    <button class="btn btn-primary" [routerLink]="['/addRestaurant']">
+      <i class="fas fa-plus"></i> Add Restaurant
+    </button>
+  </div>
+</div>

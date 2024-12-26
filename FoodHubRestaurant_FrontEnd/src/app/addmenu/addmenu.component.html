@@ -1,0 +1,68 @@
+<div class="container mt-4">
+  <h2>Add Menu</h2>
+  <form (ngSubmit)="addMenu(imageInput)" #menuForm="ngForm">
+    <div class="form-group">
+      <label for="titre">Menu:</label>
+      <input
+        type="text"
+        id="titre"
+        class="form-control"
+        [(ngModel)]="itemMenu.titre"
+        name="titre"
+        required
+        placeholder="Enter the Menu's name"
+      />
+    </div>
+
+    <div class="form-group mt-3">
+      <label for="description">Description:</label>
+      <textarea
+        id="description"
+        class="form-control"
+        [(ngModel)]="itemMenu.description"
+        name="description"
+        required
+        placeholder="Enter Menu's description"
+      ></textarea>
+    </div>
+
+    <div class="form-group mt-3">
+      <label for="prix">Prix:</label>
+      <input
+        type="number"
+        id="prix"
+        class="form-control"
+        [(ngModel)]="itemMenu.prix"
+        name="prix"
+        required
+        placeholder="Enter the Menu Price"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="rest" class="form-label">List of Restaurants</label>
+      <select id="rest" class="form-select" [(ngModel)]="itemMenu.rest" name="rest" required>
+          <option *ngFor="let r of restaurants" [ngValue]="r">{{ r.titre }}</option>
+      </select>
+    </div>
+
+    <div class="form-group mt-3">
+      <label for="file">Image:</label>
+      <input
+        type="file"
+        id="file"
+        class="form-control"
+        #imageInput
+        accept="image/*"
+        required
+      />
+    </div>
+
+    <button
+      type="submit"
+      class="btn btn-primary mt-3"
+      [disabled]="!menuForm.form.valid"
+    >
+      Add Restaurant
+    </button>
+  </form>
+</div>

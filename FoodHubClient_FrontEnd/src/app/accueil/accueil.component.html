@@ -1,0 +1,72 @@
+<div class="bg-light py-5 text-center text-white" style="background-image: url('../public/back11.avif'); background-size: cover; background-position: center;">
+  <div class="container">
+    <h1 class="display-4 fw-bold">Des plats délicieux livrés chez vous</h1>
+    <p class="lead">Commandez vos plats préférés et faites-les livrer rapidement et frais !</p>
+  </div>
+</div>
+
+<!-- Restaurants Section -->
+<div id="categories" class="container py-5">
+  <h2 class="text-center mb-4">Restaurants</h2>
+  <div class="row">
+    <div *ngFor="let restaurant of restaurants" class="col-md-4 mb-4">
+      <div class="card">
+        <!-- Display Image -->
+        <img
+          *ngIf="restaurant.image"
+          [src]="'data:image/jpeg;base64,' + restaurant.image"
+          class="card-img-top"
+          alt="{{ restaurant.titre }}"
+        />
+        <div class="card-body">
+          <h5 class="card-title"><b>{{ restaurant.titre }}</b></h5>
+          <p class="card-text">{{ restaurant.description }}</p>
+          <p class="text-muted"><b>Specialty:</b> {{ restaurant.specialite }}</p>
+          <p class="text-muted"><b>Address:</b> {{ restaurant.adresse }}</p>
+          <div class="d-flex justify-content-between">
+            <!-- View Menu Button -->
+            <button class="btn btn-outline-primary" [routerLink]="['/menus', restaurant.id]">
+              <i class="fas fa-utensils"></i> Voir le menu
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container py-5">
+  <h2 class="text-center mb-4">Plats en vedette</h2>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card">
+        <img src="https://via.placeholder.com/300" class="card-img-top" alt="Item 1">
+        <div class="card-body">
+          <h5 class="card-title">Item 1</h5>
+          <p class="card-text">10.99DT</p>
+          <a href="#" class="btn btn-primary">Add to Cart</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <img src="https://via.placeholder.com/300" class="card-img-top" alt="Item 2">
+        <div class="card-body">
+          <h5 class="card-title">Item 2</h5>
+          <p class="card-text">8.99DT</p>
+          <a href="#" class="btn btn-primary">Add to Cart</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <img src="https://via.placeholder.com/300" class="card-img-top" alt="Item 3">
+        <div class="card-body">
+          <h5 class="card-title">Item 3</h5>
+          <p class="card-text">12.99DT</p>
+          <a href="#" class="btn btn-primary">Add to Cart</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
